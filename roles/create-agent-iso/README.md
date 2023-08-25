@@ -6,7 +6,7 @@ Generate OpenShift agent iso.
 Requirements
 ------------
 
-If used againts vSphere platform, `community.vmware` collection is required.
+
 
 Role Variables
 --------------

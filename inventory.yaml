@@ -6,8 +6,8 @@ all:
     cluster_name: sno
     ssh_key_path: "/home/cloud-user/openshift-install/ocp_rsa.pub"
     pull_secret_path: "/home/cloud-user/openshift-install/pull-secret.txt"
-    datastore_name: "WorkloadDatastore"
-    datacenter_name: "SDDC-Datacenter"
+    # Unless specified, using ocp_install_dir as the ouput dir of the ISO file.
+    agent_iso_path: "/home/cloud-user/openshift-install/test-agent-folder"
     vsphere:
       datastore_name: "WorkloadDatastore"
       datacenter_name: "SDDC-Datacenter"

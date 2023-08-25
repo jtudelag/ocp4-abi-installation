@@ -10,10 +10,3 @@
   import_tasks: create-iso.yaml
   tags:
   - create-iso
-
-- name: Upload Agent ISO to vSpher
-  import_tasks: copy-iso-vsphere.yaml
-  when: platform == "vsphere"
-  tags:
-  - vsphere
-  - upload-iso
