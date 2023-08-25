@@ -4,4 +4,12 @@
   # Gather facts is required, otherwise this will fail.
   gather_facts: yes
   roles:
-  - create-agent-iso 
+
+  - role: create-agent-iso 
+    tags:
+    - iso
+
+  - role: install-vsphere
+    when: platform == "vsphere"
+    tags:
+    - vsphere
