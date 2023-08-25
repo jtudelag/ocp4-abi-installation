@@ -1,0 +1,35 @@
+apiVersion: v1alpha1
+kind: AgentConfig
+rendezvousIP: 192.168.171.100
+hosts:
+  - hostname: master0
+    role: master
+    interfaces:
+     - name: eth0
+       macAddress: "00:50:56:00:FF:11"
+    rootDeviceHints:
+      minSizeGigabytes: 100
+    networkConfig:
+      interfaces:
+        - name: eth0
+          type: ethernet
+          state: up
+          ipv4:
+            enabled: true
+            address:
+            - ip: 192.168.171.100
+              prefix-length: 24
+            dhcp: false
+          ipv6:
+            enabled: false
+      dns-resolver:
+        config:
+          server:
+            - 192.168.171.10
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 192.168.171.1
+            next-hop-interface: eth0
+            table-id: 254
+

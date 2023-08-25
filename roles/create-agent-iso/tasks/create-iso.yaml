@@ -1,0 +1,6 @@
+---
+# tasks file for create-agent-iso
+- name: Generate OpenShift Agent ISO
+  ansible.builtin.shell:                                                                                                                                                                                                                    
+    cmd: /usr/local/bin/openshift-install --log-level debug --dir ./ agent create image                                                                                                                                                                                      
+    chdir: "{{ ocp_install_assets_dir }}"

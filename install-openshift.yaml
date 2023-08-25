@@ -1,0 +1,7 @@
+---
+- name: Install OpenShift
+  hosts: localhost
+  # Gather facts is required, otherwise this will fail.
+  gather_facts: yes
+  roles:
+  - create-agent-iso 

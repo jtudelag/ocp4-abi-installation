@@ -1,0 +1,14 @@
+variant: openshift
+version: 4.12.0
+metadata:
+  name: 99-master-test-file
+  labels:
+    machineconfiguration.openshift.io/role: master
+storage:
+  files:
+  - path: /etc/test
+    mode: 0644 
+    contents:
+      inline: |
+        Hello!
+        This is a test file!

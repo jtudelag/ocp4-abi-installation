@@ -1,0 +1,13 @@
+all:
+  vars:
+    ocp_install_dir: "/home/cloud-user/openshift-install"
+    platform: vsphere
+    basedomain: ocp4.abi.com
+    cluster_name: sno
+    ssh_key_path: "/home/cloud-user/openshift-install/ocp_rsa.pub"
+    pull_secret_path: "/home/cloud-user/openshift-install/pull-secret.txt"
+    datastore_name: "WorkloadDatastore"
+    datacenter_name: "SDDC-Datacenter"
+    vsphere:
+      datastore_name: "WorkloadDatastore"
+      datacenter_name: "SDDC-Datacenter"

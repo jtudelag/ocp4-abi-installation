@@ -1,0 +1,5 @@
+---
+# defaults file for create-agent-iso
+ocp_install_dir: ""
+basedomain:
+cluster_name:

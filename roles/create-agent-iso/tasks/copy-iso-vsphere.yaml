@@ -1,0 +1,8 @@
+---
+# tasks file for create-agent-iso
+- name: Upload agent ISO to vSphere datastore
+  community.vmware.vsphere_copy:
+    datacenter: "{{ vsphere.datacenter_name }}"         
+    datastore: "{{ vsphere.datastore_name }}"
+    src: "{{ ocp_install_assets_dir }}/agent.x86_64.iso"
+    dest: agent1/agent.x86_64.iso
