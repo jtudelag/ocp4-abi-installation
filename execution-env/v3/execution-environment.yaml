@@ -1,0 +1,31 @@
+---
+version: 3 
+
+options:
+  package_manager_path: /usr/bin/microdnf
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
+ 
+additional_build_files:
+  - src: ansible.cfg
+    dest: configs
+ 
+additional_build_steps:
+  prepend_base:
+   # Workaround Install Red Hat OpenShift client tools: https://access.redhat.com/solutions/6985157
+    - RUN $PKGMGR install -y --enablerepo=rhocp-4.12-for-rhel-9-x86_64-rpms openshift-clients
+  prepend_galaxy:
+    # reference the file from build context like this
+    - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
+
+dependencies:
+  galaxy:
+    collections:
+      - name: redhat.openshift
+        version: 2.3.0
+      - name: vmware.vmware_rest
+  python:
+    - kubernetes==27.2.0
+    - aiohttp==3.8.5

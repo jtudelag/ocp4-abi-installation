@@ -1,0 +1,17 @@
+---
+version: 1 
+
+build_arg_defaults:
+  EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
+ 
+ansible_config: 'ansible.cfg'
+
+additional_build_steps:
+  prepend :
+    # Workaround Install Red Hat OpenShift client tools: https://access.redhat.com/solutions/6985157
+    # Still fails...v3 on the other hand works.
+    - RUN microdnf install -y --enablerepo=rhocp-4.12-for-rhel-9-x86_64-rpms --releasever=9.1 openshift-clients
+
+dependencies:
+  galaxy: requirements.yaml
+  python: requirements.txt
